@@ -1,0 +1,5 @@
+<h1>旅行名: <%= @travel.name %></h1>
+
+<%= link_to '一覧に戻る', travels_path %>
+<%= link_to 'この旅行を編集する', edit_travel_path(@travel) %>
+<%= link_to '旅行を削除する', @travel, data: { turbo_method: :delete, turbo_confirm: '本当に削除してよろしいですか？' } %>

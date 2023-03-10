@@ -1,0 +1,9 @@
+<h1>旅行一覧<h1>
+
+<ul>
+  <% @travels.each do |travel| %>
+    <li><%= link_to travel.name, travel %></li>
+  <% end %>
+</ul>
+
+<%= link_to '新しい旅行の追加', new_travel_path %>
