@@ -1,10 +1,5 @@
-<h1>旅行名: <%= @travel.name %></h1>
+<h1>旅行編集ページ</h1>
 
-<%= form_with(model: @travel, local: true) do |f| %>
-  <%= f.label :name, '旅行名' %>
-  <%= f.text_field :name %>
-
-  <%= f.submit '保存' %>
-<% end %>
+<%= render 'form', travel: @travel %>
 
 <%= link_to '一覧に戻る', travels_path %>

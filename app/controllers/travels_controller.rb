@@ -1,10 +1,12 @@
 class TravelsController < ApplicationController
+
+  before_action :set_travel, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@travels = Travel.all
 	end
 
   def show
-		@travel = Travel.find(params[:id])
   end
 
   def new
@@ -25,11 +27,9 @@ class TravelsController < ApplicationController
   end
 
   def edit
-    @travel = Travel.find(params[:id])
   end
 
   def update
-    @travel = Travel.find(params[:id])
 
     if @travel.update(travel_params)
       flash[:success] = 'travel は正常に更新されました'
@@ -41,7 +41,6 @@ class TravelsController < ApplicationController
   end
 
   def destroy
-    @travel = Travel.find(params[:id])
     @travel.destroy
 
     flash[:success] = '旅行は正常に削除されました'
@@ -50,8 +49,12 @@ class TravelsController < ApplicationController
 
 	private
 
-	# Strong Parameter
   def travel_params
     params.require(:travel).permit(:name)
   end
+
+  def set_travel
+    @travel = Travel.find(params[:id])
+  end
+
 end
