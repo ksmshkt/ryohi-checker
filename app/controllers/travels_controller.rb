@@ -21,7 +21,7 @@ class TravelsController < ApplicationController
       redirect_to @travel
     else
       flash.now[:danger] = '新しい旅行の追加に失敗しました'
-      render :new
+      render :new, status: :unprocessable_entity
     end
 
   end
