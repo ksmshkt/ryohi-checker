@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'travels#index'
+  root to: 'toppages#index'
   resources :travels
 end
