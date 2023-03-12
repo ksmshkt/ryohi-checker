@@ -28,6 +28,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem 'kaminari'
+gem 'pry-byebug', group: :development
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
