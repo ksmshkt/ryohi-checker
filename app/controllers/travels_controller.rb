@@ -1,5 +1,6 @@
 class TravelsController < ApplicationController
 
+  before_action :require_user_logged_in
   before_action :set_travel, only: [:show, :edit, :update, :destroy]
 
 	def index
