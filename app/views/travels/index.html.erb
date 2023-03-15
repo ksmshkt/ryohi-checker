@@ -3,7 +3,7 @@
   <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %>
 <% end %>
 
-<h1>旅行一覧<h1>
+<h1><%= current_user.name %>さんの旅行一覧<h1>
 
 <ul>
   <% @travels.each do |travel| %>

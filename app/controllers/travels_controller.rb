@@ -4,7 +4,7 @@ class TravelsController < ApplicationController
   before_action :set_travel, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@travels = Travel.all.page(params[:page]).per(3)
+		@travels = current_user.travels.all.page(params[:page]).per(3)
 	end
 
   def show
@@ -15,11 +15,11 @@ class TravelsController < ApplicationController
   end
 
   def create
-		@travel = Travel.new(travel_params)
+		@travel = current_user.travels.build(travel_params)
 
     if @travel.save
       flash[:success] = '新しい旅行が追加されました'
-      redirect_to @travel
+      redirect_to travels_path
     else
       flash.now[:danger] = '新しい旅行の追加に失敗しました'
       render :new, status: :unprocessable_entity
