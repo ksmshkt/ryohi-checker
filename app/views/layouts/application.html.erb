@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RyohiChecker</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+<head>
+  <title>RyohiChecker</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <div class="container">
-      <%= render 'layouts/flash_messages' %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-      <%= yield %>
-    </div>
-  </body>
+<body>
+  <div class="container">
+    <%= render 'layouts/flash_messages' %>
+
+    <%= yield %>
+  </div>
+</body>
+
 </html>
