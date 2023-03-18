@@ -1,0 +1,14 @@
+<h1>旅行名：<%= @travel.name %>の費用項目一覧<h1>
+
+    <ul>
+      <% @travel_costs.each do |travel_cost| %>
+      <li>項目名：<%= travel_cost.name %></li>
+      <li>予算：<%= travel_cost.budget %></li>
+      <li>支払った金額：<%= travel_cost.amount_paid %></li>
+      <%= link_to '編集', edit_travel_cost_path(travel_cost) %>
+      <%= link_to '削除', travel_cost, data: { turbo_method: :delete, turbo_confirm: '削除してよろしいですか？' } %>
+      <% end %>
+    </ul>
+
+    <%= link_to '戻る', :back %>
+    <%= link_to '旅費項目を追加する', new_travel_cost_path %>

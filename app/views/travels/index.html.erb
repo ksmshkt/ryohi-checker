@@ -1,15 +1,15 @@
 <% if logged_in? %>
-  <p>ログインユーザ: <%= current_user.name %></p>
-  <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %>
+<p>ログインユーザ: <%= current_user.name %></p>
+<%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %>
 <% end %>
 
 <h1><%= current_user.name %>さんの旅行一覧<h1>
 
-<ul>
-  <% @travels.each do |travel| %>
-    <li><%= link_to travel.name, travel %></li>
-  <% end %>
-</ul>
-<%= paginate @travels %>
+    <ul>
+      <% @travels.each do |travel| %>
+      <li><%= link_to travel.name, travel %></li>
+      <% end %>
+    </ul>
+    <%= paginate @travels %>
 
-<%= link_to '新しい旅行の追加', new_travel_path %>
+    <%= link_to '新しい旅行の追加', new_travel_path %>
