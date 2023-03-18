@@ -1,8 +1,6 @@
 <nav class="navbar">
   <ul>
-    <% if logged_in? %>
     <li>ログインユーザ：<%= current_user.name %></li>
-    <% end %>
     <li><%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %></li>
   </ul>
 </nav>
