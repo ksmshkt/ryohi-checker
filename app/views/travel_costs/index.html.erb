@@ -1,14 +1,32 @@
-<h1>旅行名：<%= @travel.name %>の費用項目一覧<h1>
+<h1>旅行名：<%= @travel.name %>の費用項目一覧</h1>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th class="text-center">項目名</th>
+      <th class="text-center">予算</th>
+      <th class="text-center">支払った金額</th>
+      <th class="text-center">差額</th>
+    </tr>
+  </thead>
+  <tr class="tr_sum">
+    <td>合計</td>
+    <td class="text-center"><%= @travel_costs.all.sum(:budget) %></td>
+    <td class="text-center"><%= @travel_costs.all.sum(:amount_paid) %></td>
+    <td class="text-center"><%= (@travel_costs.all.sum(:budget) - @travel_costs.all.sum(:amount_paid)) %></td>
+  </tr>
+  <% @travel_costs.each do |travel_cost| %>
+  <tr>
+    <td><%= travel_cost.name %></td>
+    <td class="text-center"><%= travel_cost.budget %></td>
+    <td class="text-center"><%= travel_cost.amount_paid %></td>
+    <td class="text-center"><%= (travel_cost.budget - travel_cost.amount_paid) %></td>
+  </tr>
+  <% end %>
+</table>
 
-    <ul>
-      <% @travel_costs.each do |travel_cost| %>
-      <li>項目名：<%= travel_cost.name %></li>
-      <li>予算：<%= travel_cost.budget %></li>
-      <li>支払った金額：<%= travel_cost.amount_paid %></li>
-      <%= link_to '編集', edit_travel_cost_path(travel_cost) %>
-      <%= link_to '削除', travel_cost, data: { turbo_method: :delete, turbo_confirm: '削除してよろしいですか？' } %>
-      <% end %>
-    </ul>
-
-    <%= link_to '旅行一覧画面に戻る', travels_path %>
-    <%= link_to '旅費項目を追加する', new_travel_cost_path %>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <div class="container-fluid">
+    <li class="nav-item"><%= link_to '旅行一覧画面に戻る', travels_path, class: 'nav-link' %></li>
+    <li class="nav-item"><%= link_to '旅費項目を追加する', new_travel_cost_path, class: 'nav-link' %></li>
+  </div>
+</nav>

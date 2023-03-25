@@ -1,20 +1,31 @@
-  <h1>ユーザ新規作成</h1>
+    <h1>サインアップ</h1>
 
-    <%= form_with(model: @user, local: true) do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
-      
-        <%= f.label :name, 'ユーザ名' %>
-        <%= f.text_field :name %>
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
 
-        <%= f.label :email, 'メールアドレス' %>
-        <%= f.email_field :email %>
+        <%= form_with(model: @user, local: true) do |f| %>
 
-        <%= f.label :password, 'パスワード' %>
-        <%= f.password_field :password %>
+        <div class="form-group">
+          <%= f.label :name, 'ユーザ名' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
 
-        <%= f.label :password_confirmation, 'パスワード確認' %>
-        <%= f.password_field :password_confirmation %>
+        <div class="form-group">
+          <%= f.label :email, 'メールアドレス' %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
 
-      <%= f.submit '新規作成' %>
-    <% end %>
+        <div class="form-group">
+          <%= f.label :password, 'パスワード' %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
 
+        <div class="form-group">
+          <%= f.label :password_confirmation, 'パスワード確認' %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+
+        <%= f.submit 'サインアップ', class: 'btn btn-secondary btn-block' %>
+        <% end %>
+      </div>
+    </div>

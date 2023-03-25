@@ -1,6 +1,21 @@
-<nav class="navbar">
-  <ul>
-    <li>ログインユーザ：<%= current_user.name %></li>
-    <li><%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %></li>
-  </ul>
-</nav>
+<header class="mb-4">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">RyohiChecker</a>
+
+    <span class="navbar-text">
+      <% if logged_in? %>
+      <%= current_user.name %>さんでログイン中
+      <% end %>
+    </span>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <% if logged_in? %>
+          <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' }, class: 'nav-link' %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

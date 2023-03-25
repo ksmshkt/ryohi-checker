@@ -3,4 +3,8 @@
 <%= render 'layouts/error_messages', model: @travel %>
 <%= render 'form', model: @travel %>
 
-<%= link_to '一覧に戻る', travels_path %>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <div class="container-fluid">
+    <li class="nav-item"><%= link_to '一覧に戻る', travels_path, class: 'nav-link' %></li>
+  </div>
+</nav>

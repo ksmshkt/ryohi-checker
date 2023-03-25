@@ -1,10 +1,10 @@
 <h1><%= current_user.name %>さんの旅行一覧<h1>
-
     <ul>
       <% @travels.each do |travel| %>
       <li><%= link_to travel.name, travel %></li>
       <% end %>
     </ul>
     <%= paginate @travels %>
-
-    <%= link_to '新しい旅行の追加', new_travel_path %>
+    <div class="d-grid gap-2 col-3 mx-auto">
+      <%= link_to '新しい旅行の追加', new_travel_path, class: 'btn btn-secondary btn-block' %>
+    </div>

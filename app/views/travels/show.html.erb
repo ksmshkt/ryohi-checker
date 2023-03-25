@@ -1,6 +1,11 @@
 <h1>旅行名: <%= @travel.name %></h1>
-
-<%= link_to '旅行一覧に戻る', travels_path %>
-<%= link_to '旅行名を変更する', edit_travel_path(@travel) %>
-<%= link_to '旅行を削除する', @travel, data: { turbo_method: :delete, turbo_confirm: 'この旅行の旅費項目もすべて削除されます。本当によろしいですか？' } %>
-<%= link_to '旅費項目を管理する', travel_costs_path %>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <div class="container-fluid">
+    <li class="nav-item"><%= link_to '旅行一覧に戻る', travels_path, class: 'nav-link' %></li>
+    <li class="nav-item"><%= link_to '旅行名を変更する', edit_travel_path(@travel), class: 'nav-link' %></li>
+    <li class="nav-item">
+      <%= link_to '旅行を削除する', @travel, data: { turbo_method: :delete, turbo_confirm: 'この旅行の旅費項目もすべて削除されます。本当によろしいですか？' }, class: 'nav-link' %>
+    </li>
+    <li class="nav-item"><%= link_to '旅費項目を管理する', travel_costs_path, class: 'nav-link' %></li>
+  </div>
+</nav>

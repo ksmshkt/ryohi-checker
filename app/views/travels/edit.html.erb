@@ -1,5 +1,9 @@
-<h1>旅行編集ページ</h1>
+<h1>旅行名の変更</h1>
 
 <%= render 'form', travel: @travel %>
 
-<%= link_to '一覧に戻る', travels_path %>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <div class="container-fluid">
+    <li class="nav-item"><%= link_to '戻る', @travel, class: 'nav-link' %></li>
+  </div>
+</nav>

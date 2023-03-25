@@ -1,7 +1,13 @@
-<%= form_with(model: @travel, local: true) do |f| %>
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
 
-<%= f.label :name, '旅行名' %>
-<%= f.text_field :name %>
+        <%= form_with(model: @travel, local: true) do |f| %>
 
-<%= f.submit '保存' %>
-<% end %>
+        <div class="form-group">
+          <%= f.label :name, '旅行名' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <%= f.submit '保存', class: 'btn btn-secondary btn-block' %>
+        <% end %>
+      </div>
+    </div>
