@@ -1,10 +1,35 @@
-<h1><%= current_user.name %>さんの旅行一覧<h1>
-    <ul>
-      <% @travels.each do |travel| %>
-      <li><%= link_to travel.name, travel %></li>
-      <% end %>
-    </ul>
-    <%= paginate @travels %>
-    <div class="d-grid gap-2 col-3 mx-auto">
-      <%= link_to '新しい旅行の追加', new_travel_path, class: 'btn btn-secondary btn-block' %>
-    </div>
+<h1><%= current_user.name %>さんの旅行一覧</h1>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th class="text-center">旅行名</th>
+      <th class="text-center"></th>
+      <th class="text-center"></th>
+      <th class="text-center"></th>
+    </tr>
+  </thead>
+  <% @travels.each do |travel| %>
+  <tr>
+    <td class="text-center">
+      <li><%= travel.name %></li>
+    </td>
+    <td class="text-center">
+      <li><%= link_to '旅費を管理する', travel_costs_path(travel) %></li>
+    </td>
+    <td class="text-center">
+      <li><%= link_to '旅行名変更', edit_travel_path(travel) %></li>
+    </td>
+    <td class="text-center">
+      <li><%= link_to '削除', travel, data: { turbo_method: :delete, turbo_confirm: '項目もすべて削除されます。本当によろしいですか？' } %></li>
+    </td>
+
+  </tr>
+  <% end %>
+  <%= paginate @travels %>
+</table>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <div class="container-fluid">
+    <li class="nav-item"><%= link_to '旅行を追加する', new_travel_path, class: 'nav-link' %></li>
+  </div>
+</nav>

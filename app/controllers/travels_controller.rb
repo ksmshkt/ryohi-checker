@@ -3,10 +3,7 @@ class TravelsController < ApplicationController
   before_action :set_travel, only: %i[show edit update destroy]
 
   def index
-    @travels = current_user.travels.all.page(params[:page]).per(6)
-  end
-
-  def show
+    @travels = current_user.travels.all.page(params[:page]).per(15)
   end
 
   def new

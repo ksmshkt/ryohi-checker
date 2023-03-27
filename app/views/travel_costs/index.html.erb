@@ -1,11 +1,13 @@
-<h1>旅行名：<%= @travel.name %>の費用項目一覧</h1>
+<h1><%= @travel.name %></h1>
 <table class="table">
   <thead class="thead-light">
     <tr>
       <th class="text-center">項目名</th>
-      <th class="text-center">予算</th>
-      <th class="text-center">支払った金額</th>
-      <th class="text-center">差額</th>
+      <th class="text-center">予算(円)</th>
+      <th class="text-center">支払った金額(円)</th>
+      <th class="text-center">差額(円)</th>
+      <th class="text-center"></th>
+      <th class="text-center"></th>
     </tr>
   </thead>
   <tr class="tr_sum">
@@ -20,6 +22,10 @@
     <td class="text-center"><%= travel_cost.budget %></td>
     <td class="text-center"><%= travel_cost.amount_paid %></td>
     <td class="text-center"><%= (travel_cost.budget - travel_cost.amount_paid) %></td>
+    <td class="text-center"><%= link_to '編集', edit_travel_cost_path(travel_cost) %></td>
+    <td class="text-center">
+      <%= link_to '削除', travel_cost, data: { turbo_method: :delete, turbo_confirm: '削除してよろしいですか？' } %>
+    </td>
   </tr>
   <% end %>
 </table>
