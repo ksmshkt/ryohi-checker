@@ -7,6 +7,12 @@
           <%= f.label :name, '旅行名' %>
           <%= f.text_field :name, class: 'form-control' %>
         </div>
+        <div class="form-group">
+          <%= f.label :photo, '写真' %>
+          <%= f.file_field :photo, onchange: 'previewImage()', class: 'form-control' %>
+          <%= f.hidden_field :photo_cache %>
+          <%= image_tag @travel.photo.url, class: 'rounded-circle mt-3', id: 'preview', size: '100x100' %>
+        </div>
         <%= f.submit '保存', class: 'btn btn-secondary btn-block' %>
         <% end %>
       </div>

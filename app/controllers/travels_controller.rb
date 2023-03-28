@@ -3,7 +3,7 @@ class TravelsController < ApplicationController
   before_action :set_travel, only: %i[show edit update destroy]
 
   def index
-    @travels = current_user.travels.all.page(params[:page]).per(15)
+    @travels = current_user.travels.all.page(params[:page]).per(3)
   end
 
   def new
@@ -45,7 +45,7 @@ class TravelsController < ApplicationController
   private
 
   def travel_params
-    params.require(:travel).permit(:name)
+    params.require(:travel).permit(:name, :photo)
   end
 
   def set_travel

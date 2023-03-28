@@ -26,3 +26,4 @@
 
 # Ignore uploaded files in development
 /config/database.yml
+/public/uploads

@@ -3,7 +3,8 @@
 <table class="table">
   <thead class="thead-light">
     <tr>
-      <th class="text-center">旅行名</th>
+      <th class="text-center">旅行</th>
+      <th class="text-center"></th>
       <th class="text-center"></th>
       <th class="text-center"></th>
       <th class="text-center"></th>
@@ -13,17 +14,13 @@
   <tr>
     <td class="text-center">
       <li><%= travel.name %></li>
+      <%= image_tag travel.photo.url, class: 'rounded-circle mr15', width: '100', height: '100' %>
     </td>
     <td class="text-center">
       <li><%= link_to '旅費を管理する', travel_costs_path(travel) %></li>
-    </td>
-    <td class="text-center">
-      <li><%= link_to '旅行名変更', edit_travel_path(travel) %></li>
-    </td>
-    <td class="text-center">
+      <li><%= link_to '旅行を編集する', edit_travel_path(travel) %></li>
       <li><%= link_to '削除', travel, data: { turbo_method: :delete, turbo_confirm: '項目もすべて削除されます。本当によろしいですか？' } %></li>
     </td>
-
   </tr>
   <% end %>
   <%= paginate @travels %>
